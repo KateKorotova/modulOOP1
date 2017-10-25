@@ -21,6 +21,22 @@ Pl_int::Pl_int(const Pl_int & other)
 		mas[i] = other.mas[i];
 }
 
-Pl_int operator += (const Pl_int& b) {
+Pl_int Pl_int::operator+=(int b) {
+	Pl_int res;
+	int* arr = new int[size];
+	for (int i = 0; i < size; i++) 
+		arr[i] = mas[i];
+	mas = new int[size + 1];
+	for (int i = 0; i < size; ++i)
+		mas[i] = arr[i];
+	int num = 0;
+	for (int i = 0; i < size && b == 0; ++i)
+		if (mas[i] == b)
+			num = 1;
+	if (num)
+		throw exception(" exist");
+	else
+		mas[size] = b;
+	return *this;
 
 }
