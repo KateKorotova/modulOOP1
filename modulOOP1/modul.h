@@ -9,12 +9,12 @@ public:
 	void virtual paint() = 0;
 };
 
-class Figure1 {
+class Figure1 : public Figure {
 public:
 	void paint();
 };
 
-class Figure2 {
+class Figure2 : public Figure {
 public:
 	void paint();
 };
