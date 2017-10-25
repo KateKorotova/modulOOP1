@@ -18,9 +18,15 @@
     <ClCompile Include="modul.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="num_int.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modul.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="num_int.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

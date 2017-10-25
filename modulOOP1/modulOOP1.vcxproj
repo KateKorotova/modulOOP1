@@ -111,9 +111,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="modul.cpp" />
+    <ClCompile Include="num_int.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modul.h" />
+    <ClInclude Include="num_int.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
