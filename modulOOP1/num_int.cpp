@@ -21,22 +21,51 @@ Pl_int::Pl_int(const Pl_int & other)
 		mas[i] = other.mas[i];
 }
 
-Pl_int Pl_int::operator+=(int b) {
-	Pl_int res;
-	int* arr = new int[size];
-	for (int i = 0; i < size; i++) 
-		arr[i] = mas[i];
-	mas = new int[size + 1];
-	for (int i = 0; i < size; ++i)
-		mas[i] = arr[i];
-	int num = 0;
-	for (int i = 0; i < size && b == 0; ++i)
-		if (mas[i] == b)
-			num = 1;
-	if (num)
-		throw exception(" exist");
-	else
-		mas[size] = b;
-	return *this;
+Pl_int& Pl_int::operator+=(int b) {
 
+	for (int i = 0; i < size; i++) {
+		if (mas[i] == b)
+			return *this;
+	}
+	int* newmas = new int[size + 1];
+	for (int i = 0; i < size; i++) {
+		newmas[i] = mas[i];
+	}
+	size++;
+	newmas[size - 1] = b;
+	if (mas != nullptr)
+		delete[] mas;
+	mas = newmas;
+	return *this;
+}
+
+
+Pl_int& Pl_int::operator-=(int b) {
+	int index = -1;
+	for (int i = 0; i < size && index == -1; i++) {
+		if (mas[i] == b)
+			index = i;
+	}
+	if (index == -1)
+		return *this;
+	//throw exception("Not exist");
+	if (size == 1) {
+		size = 0;
+		delete[] mas;
+		mas = nullptr;
+		return *this;
+	}
+
+	int* newmas = new int[size - 1];
+	for (int i = 0; i < index; i++) {
+		newmas[i] = mas[i];
+	}
+	for (int i = index + 1; i < size; i++) {
+		newmas[i - 1] = mas[i];
+	}
+	size--;
+	if (mas != nullptr)
+		delete[] mas;
+	mas = newmas;
+	return *this;
 }
