@@ -69,3 +69,29 @@ Pl_int& Pl_int::operator-=(int b) {
 	mas = newmas;
 	return *this;
 }
+
+Pl_int Pl_int::operator +(const Pl_int& b) {
+	Pl_int ans = *this;
+	for (int i = 0; i < b.size; i++) {
+		ans += b.mas[i];
+	}
+	return ans;
+}
+
+bool Pl_int::operator==(const Pl_int& b) {
+	if (this == &b)
+		return true;
+	if (size != b.size)
+		return false;
+	for (int i = 0; i < b.size; i++) {
+		bool exist = false;
+		for (int j = 0; j < size && !exist; j++) {
+			if (mas[j] == b.mas[i])
+				exist = true;
+		}
+		if (!exist) {
+			return false;
+		}
+	}
+	return true;
+}
