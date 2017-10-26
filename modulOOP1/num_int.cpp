@@ -95,3 +95,47 @@ bool Pl_int::operator==(const Pl_int& b) {
 	}
 	return true;
 }
+
+
+Pl_int& Pl_int::operator=(const Pl_int& b) {
+	if (this != &b) {
+		if (b.size == 0 || size != b.size) {
+			if (mas != nullptr)
+				delete[] mas;
+			mas = nullptr;
+			size = 0;
+		}
+		if (b.size > 0) {
+			if (mas == nullptr) {
+				mas = new int[b.size];
+				size = b.size;
+			}
+			for (int i = 0; i < size; i++) {
+				mas[i] = b.mas[i];
+			}
+		}
+		return *this;
+	}
+	return *this;
+}
+
+
+istream& operator >> (istream& os, Pl_int& num) {
+	int number;
+	cin >> number;
+	num += number;
+	return os;
+}
+
+ostream& operator<< (ostream& os, const Pl_int& num) {
+	if (num.size == 0) {
+		cout << "Set is empty." << endl;
+	}
+	else {
+		for (int i = 0; i < num.size - 1; i++) {
+			cout << num.mas[i] << " ";
+		}
+		cout << num.mas[num.size - 1];
+	}
+	return os;
+}

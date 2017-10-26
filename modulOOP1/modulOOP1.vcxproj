@@ -110,6 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="modul.cpp" />
     <ClCompile Include="num_int.cpp" />
   </ItemGroup>
